@@ -2,7 +2,7 @@
 FROM runpod/worker-comfyui:5.5.0-base
 
 # install custom nodes
-RUN comfy-node-install comfyui-kjnodes comfyui-frame-interpolation ComfyUI-WanVideoWrapper
+RUN comfy-node-install comfyui-custom-scripts comfyui-easyuse comfyui-frame-interpolation comfyui-wanvideowrapper
 
 # vae
 RUN comfy model download --url https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors --relative-path models/vae --filename wan_2.1_vae.safetensors
