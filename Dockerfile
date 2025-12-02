@@ -1,6 +1,13 @@
 # clean base image containing only comfyui, comfy-cli and comfyui-manager
 FROM runpod/worker-comfyui:5.5.0-base
 
+# Add build toolchain so Triton / WanVideoSampler can compile kernels
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3.12-dev \
+    cmake \
+ && rm -rf /var/lib/apt/lists/*
+
 # install custom nodes
 RUN comfy-node-install comfyui-custom-scripts
 RUN comfy-node-install comfyui-easy-use
