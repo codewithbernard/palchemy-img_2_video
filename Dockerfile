@@ -69,6 +69,7 @@ RUN for node_dir in */; do \
 
 RUN python3.12 -m pip install comfy-cli setuptools wheel
 RUN comfy --workspace /tmp/build/ComfyUI
+RUN comfy --skip-prompt tracking disable
 
 # ============================================================================
 # Stage 2: Runtime - Clean image with pre-installed packages
